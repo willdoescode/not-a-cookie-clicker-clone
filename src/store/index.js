@@ -8,23 +8,31 @@ export default new Vuex.Store({
     points: 0
   },
   mutations: {
-    increment (state) {
+    increment(state) {
+      state.points++
+      localStorage.setItem('points', state.points)
+    },
+    setStorage(state) {
       if (localStorage.getItem('points') === null) {
         localStorage.setItem('points', state.points)
-        console.log(state.points)
       } else {
         state.points = localStorage.getItem('points')
-        state.points++
-        localStorage.setItem('points', state.points)
-        console.log(state.points)
       }
+    },
+    resetAll(state) {
+      localStorage.clear()
+      state.points = 0
     }
   },
   actions: {
     increment(context) {
       context.commit('increment')
+    },
+    setStorage(context) {
+      context.commit('setStorage')
+    },
+    resetAll(context) {
+      context.commit('resetAll')
     }
-  },
-  modules: {
   }
 })

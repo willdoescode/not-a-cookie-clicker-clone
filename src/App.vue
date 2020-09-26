@@ -2,6 +2,8 @@
   <div id="app">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <button @click="$store.dispatch('increment')">Hello</button>
+    <button @click="$store.dispatch('resetAll')">Reset</button>
+    <h1>{{$store.state.points}}</h1>
   </div>
 </template>
 
@@ -9,6 +11,9 @@
 export default {
   name: 'App',
   components: {
+  },
+  mounted() {
+    this.$store.dispatch('setStorage')
   }
 }
 </script>
