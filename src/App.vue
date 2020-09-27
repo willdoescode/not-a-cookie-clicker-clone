@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @contextmenu="disableRightClick">
     <money-panel class="panel" />
     <buy-panel class="panel" />
   </div>
@@ -21,6 +21,11 @@ export default {
   computed: {
     points() {
       return this.$store.state.points
+    }
+  },
+  methods: {
+    disableRightClick(e) {
+      e.preventDefault()
     }
   },
   watch: {

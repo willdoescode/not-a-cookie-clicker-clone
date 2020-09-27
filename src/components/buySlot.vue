@@ -16,9 +16,11 @@ export default {
   },
   methods: {
     subtractMoney() {
-      this.$store.commit('decrement', {
-        amount: this.cost
-      })
+      if (this.cost <= this.$store.state.points) {
+        this.$store.commit('decrement', {
+          amount: this.cost
+        })
+      }
     }
   }
 }
@@ -37,9 +39,11 @@ export default {
 }
 .slot-disabled {
   background-color: gray;
+  cursor: default;
 }
 .slot-enabled {
   background-color: #39a0ca;
+  cursor: pointer;
 }
 .disabled {
   text-decoration: line-through;

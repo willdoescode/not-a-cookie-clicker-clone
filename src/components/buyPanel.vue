@@ -30,7 +30,7 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #39a0ca;
+  background-color: slategray;
   border: 1px solid whitesmoke;
   overflow: auto;
   .slot {
