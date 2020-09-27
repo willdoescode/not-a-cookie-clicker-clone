@@ -23,11 +23,12 @@ export default {
   border: 1px solid black;
   .money-text {
     color: whitesmoke;
+    margin-top: 5px;
   }
   .money-container {
     display: flex;
     align-items: center;
-    margin-top: 17vh;
+    margin-top: 15vh;
     justify-content: center;
     img {
       width: 20vw;

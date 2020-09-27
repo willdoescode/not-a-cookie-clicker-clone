@@ -14,6 +14,7 @@ export default new Vuex.Store({
     },
     decrement(state, { amount }) {
       state.points -= amount
+      localStorage.setItem('points', state.points)
     },
     setStorage(state) {
       if (localStorage.getItem('points') === null) {

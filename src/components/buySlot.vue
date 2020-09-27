@@ -1,5 +1,5 @@
 <template>
-  <div @click="subtractMoney" class="buySlot">
+  <div @click="subtractMoney" :class="cost > this.$store.state.points ? 'slot-disabled buySlot' : 'slot-enabled buySlot'">
     <div class="texts" :class="cost > this.$store.state.points ? 'disabled' : 'enabled'">
       <h1 class="name">{{name}}</h1>
       <h3 class="cost">${{cost}}</h3>
@@ -28,8 +28,6 @@ export default {
 .buySlot {
   width: 100%;
   border: 1px solid whitesmoke;
-  border-radius: 15vh;
-  background-image: linear-gradient(to right, red, blue);
   .texts {
     color: whitesmoke;
     display: flex;
@@ -37,7 +35,12 @@ export default {
     flex-direction: column;
   }
 }
-
+.slot-disabled {
+  background-color: gray;
+}
+.slot-enabled {
+  background-color: #39a0ca;
+}
 .disabled {
   text-decoration: line-through;
 }

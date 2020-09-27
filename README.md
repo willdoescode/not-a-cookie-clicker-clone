@@ -1,5 +1,5 @@
 # Not A Cookie Clicker Clone
-## A very cool project for coding club
+## A very cool project for CHS Coding Club
 
 ![forthebadge](https://forthebadge.com/images/badges/approved-by-george-costanza.svg)
 

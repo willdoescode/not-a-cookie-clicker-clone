@@ -1,12 +1,11 @@
 <template>
   <div class="panel">
-    <buy-slot name="wow" cost="40" />
-    <div @click="wow = !wow" class="slot">
-      Hello
-    </div>
-    <div class="slot" v-if="wow">
-      Hello
-    </div>
+    <buy-slot name="wow" cost="2" />
+    <buy-slot name="wow" cost="3" />
+    <buy-slot name="wow" cost="4" />
+    <buy-slot name="wow" cost="5" />
+    <buy-slot name="wow" cost="6" />
+    <buy-slot name="wow" cost="7" />
   </div>
 </template>
 
@@ -33,6 +32,7 @@ export default {
   height: 100vh;
   background-color: #39a0ca;
   border: 1px solid whitesmoke;
+  overflow: auto;
   .slot {
     width: 100%;
   }
