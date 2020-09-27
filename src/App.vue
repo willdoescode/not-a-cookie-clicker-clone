@@ -1,21 +1,29 @@
 <template>
   <div id="app">
-    <Panel class="panel" />
-    <Panel class="panel" />
-    <Panel class="panel" />
+    <money-panel class="panel" />
   </div>
 </template>
 
 <script>
-import Panel from "@/components/Panel";
+import moneyPanel from "@/components/moneyPanel";
 
 export default {
   name: 'App',
   components: {
-    Panel
+    moneyPanel
   },
   mounted() {
     this.$store.dispatch('setStorage')
+  },
+  computed: {
+    points() {
+      return this.$store.state.points
+    }
+  },
+  watch: {
+    points(after) {
+      document.title = `$${after} / Not A Cookie Clicker Clone`
+    }
   }
 }
 </script>
@@ -24,6 +32,7 @@ export default {
 * {
   margin: 0;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

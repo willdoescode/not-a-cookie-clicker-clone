@@ -10,12 +10,7 @@
 
 <script>
 export default {
-  name: 'Panel',
-  computed: {
-    points() {
-      return this.$store.state.points
-    }
-  }
+  name: 'Panel'
 }
 </script>
 
