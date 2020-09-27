@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <money-panel class="panel" />
+    <buy-panel class="panel" />
   </div>
 </template>
 
 <script>
 import moneyPanel from "@/components/moneyPanel";
+import buyPanel from "@/components/buyPanel";
 
 export default {
   name: 'App',
   components: {
-    moneyPanel
+    moneyPanel,
+    buyPanel
   },
   mounted() {
     this.$store.dispatch('setStorage')
@@ -21,8 +24,8 @@ export default {
     }
   },
   watch: {
-    points(after) {
-      document.title = `$${after} / Not A Cookie Clicker Clone`
+    points(after, before) {
+      document.title = `$${before} -> $${after} / Not A Cookie Clicker Clone`
     }
   }
 }

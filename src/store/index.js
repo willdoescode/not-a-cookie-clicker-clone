@@ -12,6 +12,9 @@ export default new Vuex.Store({
       state.points++
       localStorage.setItem('points', state.points)
     },
+    decrement(state, { amount }) {
+      state.points -= amount
+    },
     setStorage(state) {
       if (localStorage.getItem('points') === null) {
         localStorage.setItem('points', state.points)
@@ -33,6 +36,6 @@ export default new Vuex.Store({
     },
     resetAll(context) {
       context.commit('resetAll')
-    }
+    },
   }
 })
