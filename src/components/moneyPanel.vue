@@ -29,6 +29,9 @@ export default {
     img {
       width: 20vw;
       transition: 0.3s;
+      &:hover {
+        cursor: pointer;
+      }
       &:active {
         transform: scale(0.8);
       }
