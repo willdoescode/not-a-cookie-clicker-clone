@@ -12,13 +12,15 @@ export default {
   name: 'buySlot',
   props: {
     name: String,
+    altName: String,
     cost: Number
   },
   methods: {
     subtractMoney() {
       if (this.cost <= this.$store.state.points) {
         this.$store.commit('decrement', {
-          amount: this.cost
+          amount: this.cost,
+          name: this.altName
         })
       }
     }

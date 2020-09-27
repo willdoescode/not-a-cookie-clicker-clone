@@ -5,16 +5,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    points: 0
+    points: 0,
+    slowHelper: true,
+    fastHelper: true
   },
   mutations: {
     increment(state) {
       state.points++
       localStorage.setItem('points', state.points)
     },
-    decrement(state, { amount }) {
+    decrement(state, { amount, name }) {
       state.points -= amount
       localStorage.setItem('points', state.points)
+      state[name] = false
     },
     setStorage(state) {
       if (localStorage.getItem('points') === null) {
@@ -26,6 +29,8 @@ export default new Vuex.Store({
     resetAll(state) {
       localStorage.clear()
       state.points = 0
+      state.slowHelper = true
+      state.fastHelper = true
     }
   },
   actions: {

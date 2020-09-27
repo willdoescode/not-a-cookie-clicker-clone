@@ -1,11 +1,7 @@
 <template>
   <div class="panel">
-    <buy-slot name="wow" cost="2" />
-    <buy-slot name="wow" cost="3" />
-    <buy-slot name="wow" cost="4" />
-    <buy-slot name="wow" cost="5" />
-    <buy-slot name="wow" cost="6" />
-    <buy-slot name="wow" cost="7" />
+    <buy-slot name="Slow Helper" alt-name="slowHelper" cost="60" v-if="$store.state.slowHelper" />
+    <buy-slot name="Fast Helper" alt-name="fastHelper" cost="69" v-if="$store.state.fastHelper" />
   </div>
 </template>
 
