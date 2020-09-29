@@ -37,8 +37,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 * {
   margin: 0;
+  font-family: 'Bangers', cursive;
 }
 
 #app {

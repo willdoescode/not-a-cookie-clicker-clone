@@ -1,6 +1,6 @@
 <template>
   <div @click="subtractMoney" :class="cost > this.$store.state.points ? 'slot-disabled buySlot' : 'slot-enabled buySlot'">
-    <div class="texts" :class="cost > this.$store.state.points ? 'disabled' : 'enabled'">
+    <div :class="cost > this.$store.state.points ? 'disabled texts' : 'enabled texts'">
       <h1 class="name">{{name}}</h1>
       <h3 class="cost">${{cost}}</h3>
     </div>
@@ -13,7 +13,13 @@ export default {
   props: {
     name: String,
     altName: String,
-    cost: Number
+    cost: Number,
+    speed: Number
+  },
+  data() {
+    return {
+      interval: null
+    }
   },
   methods: {
     subtractMoney() {
@@ -23,14 +29,16 @@ export default {
           name: this.altName
         })
       }
+      this.$store.dispatch('interval', {
+        speed: this.speed
+      })
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .buySlot {
-  width: 100%;
   border: 1px solid whitesmoke;
   .texts {
     color: whitesmoke;
@@ -42,12 +50,19 @@ export default {
 .slot-disabled {
   background-color: gray;
   cursor: default;
+  .texts {
+    color: darkgrey;
+  }
 }
 .slot-enabled {
-  background-color: #39a0ca;
+  background-color: goldenrod;
   cursor: pointer;
-}
-.disabled {
-  text-decoration: line-through;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
+  .texts {
+    color: whitesmoke;
+  }
 }
 </style>

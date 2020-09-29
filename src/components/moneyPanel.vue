@@ -1,16 +1,36 @@
 <template>
   <div class="panel">
-    <button @click="$store.dispatch('resetAll')">Reset Game</button>
-    <h1 class="money-text">${{$store.state.points}}</h1>
+    <h1 class="money-text" :style="{ transform: natural, color: colors }">${{$store.state.points}}</h1>
     <div class="money-container">
-      <img class="money" @click="$store.dispatch('increment')" src='../assets/money-bag-png-19720.png'>
+      <img class="money" :style="{ transform: natural }" @click="$store.dispatch('increment')" src='../assets/PngItem_560827.png'>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Panel'
+  name: 'Panel',
+  data() {
+    return {
+      natural: 'scale(1)',
+      colors: 'whitesmoke'
+    }
+  },
+  computed: {
+    points() {
+      return this.$store.state.points
+    }
+  },
+  watch: {
+    points() {
+      this.natural = 'scale(1.1)'
+      this.colors = 'gold'
+      setTimeout(() => {
+        this.natural = 'scale(1)'
+        this.colors = 'whitesmoke'
+      }, 300)
+    }
+  }
 }
 </script>
 
@@ -19,11 +39,12 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: linear-gradient(to bottom, #2d545e, #12343b);
-  border: 1px solid black;
+  background-image: linear-gradient(to bottom, #379683, #05386b);
+  border: 1px solid whitesmoke;
   .money-text {
     color: whitesmoke;
     margin-top: 5px;
+    transition: 0.2s;
   }
   .money-container {
     display: flex;
@@ -32,7 +53,7 @@ export default {
     justify-content: center;
     img {
       width: 20vw;
-      transition: 0.3s;
+      transition: 0.1s;
       &:hover {
         cursor: pointer;
       }
