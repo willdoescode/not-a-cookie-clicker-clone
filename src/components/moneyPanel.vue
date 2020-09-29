@@ -2,7 +2,7 @@
   <div class="panel">
     <h1 class="money-text" :style="{ transform: natural, color: colors }">${{$store.state.points}}</h1>
     <div class="money-container">
-      <img class="money" :style="{ transform: natural }" @click="$store.dispatch('increment')" src='../assets/PngItem_560827.png'>
+      <img class="money" :style="{ transform: natural }" @click="$store.dispatch('increment')" src='../assets/clicker_image.png'>
     </div>
   </div>
 </template>

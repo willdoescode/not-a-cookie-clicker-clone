@@ -32,7 +32,6 @@ export default new Vuex.Store({
       } else {
         state.slowHelper = (localStorage.getItem('slowHelper') === 'true')
         if (state.slowHelper === false) {
-          console.log('hit')
           this.dispatch('interval', {
             speed: 1
           })
