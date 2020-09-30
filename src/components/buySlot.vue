@@ -39,8 +39,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+* {
+  font-weight: lighter;
+}
 .buySlot {
   border: 1px solid whitesmoke;
+  padding: 5px;
   .texts {
     color: whitesmoke;
     display: flex;
@@ -63,6 +67,7 @@ export default {
     transform: scale(1.1);
   }
   .texts {
+    font-weight: bold;
     color: whitesmoke;
   }
 }

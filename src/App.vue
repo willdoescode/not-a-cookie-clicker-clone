@@ -29,23 +29,24 @@ export default {
     }
   },
   watch: {
-    points(after, before) {
-      document.title = `$${before} -> $${after} / Not A Cookie Clicker Clone`
+    points(after) {
+      if (after < 2) {
+        document.title = `${after} dollar - Not A Cookie Clicker Clone`
+      } else {
+        document.title = `${after} dollars - Not A Cookie Clicker Clone`
+      }
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-
 * {
   margin: 0;
-  font-family: 'Bangers', cursive;
+  font-family: 'Merriweather', Georgia, serif;
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;

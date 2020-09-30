@@ -2,7 +2,7 @@
   <div class="panel">
     <h1 class="money-text" :style="{ transform: natural, color: colors }">${{$store.state.points}}</h1>
     <div class="money-container">
-      <img class="money" :style="{ transform: natural }" @click="$store.dispatch('increment')" src='../assets/clicker_image.png'>
+      <img alt="gold" class="money" :style="{ transform: natural }" @click="$store.dispatch('increment')" src='../assets/clicker_image.png'>
     </div>
   </div>
 </template>
@@ -39,13 +39,14 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 70vw;
+  width: 85vw;
   background-image: linear-gradient(to bottom, #379683, #05386b);
   border: 1px solid whitesmoke;
   .money-text {
     color: whitesmoke;
     margin-top: 5px;
     transition: 0.2s;
+    font-size: 3em;
   }
   .money-container {
     display: flex;
