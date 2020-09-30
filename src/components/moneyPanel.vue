@@ -31,13 +31,14 @@ export default {
       if (this.clicks.length >= 5) {
         let known = []
         this.clicks.shift()
-        for (const item of this.clicks) {
-          if (item in known) {
+        for (let item of this.clicks) {
+          if (item in known || item + 1 in known || item - 1 in known || item + 2 in known || item - 2 in known || item + 3 in known || item - 3 in known) {
             known[item]++
           } else {
             known.push(item)
           }
         }
+        console.log(known.length, known)
         if (known.length <= 3) {
           this.$store.state.points = 0
           this.$store.state.slowHelper = true
