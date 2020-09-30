@@ -2,7 +2,7 @@
   <div class="panel">
     <h1 class="money-text" :style="{ transform: natural, color: colors }">${{$store.state.points}}</h1>
     <div class="money-container">
-      <img alt="gold" class="money" :style="{ transform: natural }" @click="$store.dispatch('increment')" src='../assets/clicker_image.png'>
+      <img alt="gold" class="money" :style="{ transform: natural }" @click="increment" src='../assets/clicker_image.png'>
     </div>
   </div>
 </template>
@@ -13,12 +13,53 @@ export default {
   data() {
     return {
       natural: 'scale(1)',
-      colors: 'whitesmoke'
+      colors: 'whitesmoke',
+      lastClick: Number,
+      clicks: [],
+      count: 0
     }
   },
   computed: {
     points() {
       return this.$store.state.points
+    }
+  },
+  methods: {
+    increment() {
+      this.clicks.push(new Date().getTime() - this.lastClick)
+      this.lastClick = new Date().getTime()
+      if (this.clicks.length >= 5) {
+        let known = []
+        this.clicks.shift()
+        for (const item of this.clicks) {
+          if (item in known) {
+            known[item]++
+          } else {
+            known.push(item)
+          }
+        }
+        if (known.length <= 3) {
+          this.$store.state.points = 0
+          this.$store.state.slowHelper = true
+          this.$store.state.brainOnDrugs = true
+          this.clicks = []
+        } else {
+          this.clicks = []
+        }
+        for (let i of known) {
+          if (i < 10) {
+            this.count++
+          }
+        }
+        if (this.count >= 2) {
+          this.$store.state.points = 0
+          this.$store.state.slowHelper = true
+          this.$store.state.brainOnDrugs = true
+          this.clicks = []
+          this.count = 0
+        }
+      }
+      this.$store.dispatch('increment')
     }
   },
   watch: {
