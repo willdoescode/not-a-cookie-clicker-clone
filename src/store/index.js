@@ -7,8 +7,7 @@ export default new Vuex.Store({
   state: {
     points: 0,
     slowHelper: true,
-    fastHelper: true,
-    evenFaster: true
+    brainOnDrugs: true
   },
   mutations: {
     increment(state) {
@@ -33,27 +32,17 @@ export default new Vuex.Store({
         state.slowHelper = (localStorage.getItem('slowHelper') === 'true')
         if (state.slowHelper === false) {
           this.dispatch('interval', {
-            speed: 1
+            speed: 3
           })
         }
       }
-      if (localStorage.getItem('fastHelper') === null) {
-        localStorage.setItem('fastHelper', 'true')
+      if (localStorage.getItem('brainOnDrugs') === null) {
+        localStorage.setItem('brainOnDrugs', 'true')
       } else {
-        state.fastHelper = (localStorage.getItem('fastHelper') === 'true')
-        if (state.fastHelper === false) {
+        state.brainOnDrugs = (localStorage.getItem('brainOnDrugs') === 'true')
+        if (state.brainOnDrugs === false) {
           this.dispatch('interval', {
-            speed: 0.5
-          })
-        }
-      }
-      if (localStorage.getItem('evenFaster') === null) {
-        localStorage.setItem('evenFaster', 'true')
-      } else {
-        state.evenFaster = (localStorage.getItem('evenFaster') === 'true')
-        if (state.fastHelper === false) {
-          this.dispatch('interval', {
-            speed: 0.2
+            speed: -50
           })
         }
       }

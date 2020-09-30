@@ -39,6 +39,7 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 70vw;
   background-image: linear-gradient(to bottom, #379683, #05386b);
   border: 1px solid whitesmoke;
   .money-text {
