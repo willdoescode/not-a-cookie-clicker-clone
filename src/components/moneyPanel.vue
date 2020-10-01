@@ -38,7 +38,7 @@ export default {
             known.push(item)
           }
         }
-        console.log(known.length, known)
+        // console.log(known.length, known) debugging code
         if (known.length <= 3) {
           this.$store.state.points = 0
           this.$store.state.slowHelper = true
