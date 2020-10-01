@@ -44,6 +44,7 @@ export default {
           this.$store.state.slowHelper = true
           this.$store.state.brainOnDrugs = true
           this.clicks = []
+          alert('stop auto clicking')
         } else {
           this.clicks = []
         }
@@ -58,6 +59,7 @@ export default {
           this.$store.state.brainOnDrugs = true
           this.clicks = []
           this.count = 0
+          alert('stop auto clicking')
         }
       }
       this.$store.dispatch('increment')

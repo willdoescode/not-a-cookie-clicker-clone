@@ -36,7 +36,12 @@ export default {
   },
   watch: {
     // Set the tab title based on the point value
-    points(after) {
+    points(after, before) {
+      if (!after < before && after > before + 1) {
+        this.$store.state.points = 0
+        this.$store.state.slowHelper = true
+        this.$store.state.brainOnDrugs = true
+      }
       if (after < 2) {
         // Grammar
         document.title = `${after} dollar - Not A Cookie Clicker Clone`
