@@ -11,8 +11,8 @@
     <buy-slot
       name="Your Brain On Drugs"
       alt-name="brainOnDrugs"
-      cost="2000000"
-      speed="-50"
+      cost="50"
+      speed="1"
       v-if="$store.state.brainOnDrugs"
     />
   </div>

@@ -1,6 +1,6 @@
 <template>
 <!--  Handles the clicks only if enabled-->
-  <div @click="subtractMoney" :class="cost <= $store.state.points ? 'slot-enabled buySlot' : 'slot-disabled buySlot'">
+  <div @click="subtractMoney" :class="cost < $store.state.points ? 'slot-enabled buySlot' : 'slot-disabled buySlot'">
     <div :class="cost > this.$store.state.points ? 'disabled texts' : 'enabled texts'">
 <!--      changes color of text based on if the slot is enabled or not-->
       <h1 class="name">{{name}}</h1>

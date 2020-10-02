@@ -30,14 +30,11 @@ export default new Vuex.Store({
       // If there is already a value in localstorage then it sets the global corresponding state to that value
       if (localStorage.getItem('points') === null) {
         localStorage.setItem('points', state.points)
-        console.log({ points: state.points })
       } else {
         state.points = localStorage.getItem('points')
-        console.log({ points: state.points })
       }
       if (localStorage.getItem('slowHelper') === null) {
         localStorage.setItem('slowHelper', 'true')
-        console.log({ slowHelper: state.slowHelper })
       } else {
         state.slowHelper = (localStorage.getItem('slowHelper') === 'true')
         console.log({ slowHelper: state.slowHelper })
@@ -49,10 +46,8 @@ export default new Vuex.Store({
       }
       if (localStorage.getItem('brainOnDrugs') === null) {
         localStorage.setItem('brainOnDrugs', 'true')
-        console.log({ brainOnDrugs: state.brainOnDrugs })
       } else {
         state.brainOnDrugs = (localStorage.getItem('brainOnDrugs') === 'true')
-        console.log({ brainOnDrugs: state.brainOnDrugs })
         if (state.brainOnDrugs === false) {
           this.dispatch('interval', {
             speed: -50
